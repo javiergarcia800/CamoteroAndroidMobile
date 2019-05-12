@@ -8,11 +8,9 @@
     tools:context=".NavigationActivity"
     tools:showIn="@layout/app_bar_navigation">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/contentNavigation"
-        android:layout_width="395dp"
-        android:layout_height="659dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"></LinearLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </android.support.constraint.ConstraintLayout>
