@@ -1,10 +1,12 @@
 package com.mobile.camotero;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +17,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Toast;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,12 +35,12 @@ public class NavigationActivity extends AppCompatActivity
 
 
                 // TODO Enviar notificación de petición.
+                showDialogNotificacion();
 
-                
 
+                //Snackbar.make(view, "Replace with your own action JIG...", Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
 
-                Snackbar.make(view, "Replace with your own action JIG...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
 
@@ -118,4 +121,24 @@ public class NavigationActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    /**
+     * Muestra el diálogo para confirmar el envío de notificación.
+     */
+    public void showDialogNotificacion(){
+        new AlertDialog.Builder(this)
+                .setTitle("Enviar notificación")
+                .setMessage("Confirma que desea enviar una notificación de petición?")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(NavigationActivity.this, "Enviando notificación...", Toast.LENGTH_SHORT).show();
+                    }})
+
+                .setNegativeButton(R.string.no, null).show();
+    }
+
+
 }

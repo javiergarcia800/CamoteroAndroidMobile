@@ -20,6 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mobile.camotero.permission.Permissions;
+import com.mobile.camotero.util.LocationUtil;
 
 
 /**
@@ -72,8 +73,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 // Add a marker in Sydney and move the camera
                 LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
 
+                // Se guarda la localización actual.
+                LocationUtil locationUtil = LocationUtil.getInstance();
+                locationUtil.setLatLng(currentLocation);
+
                 mMap.addMarker(new MarkerOptions().position(currentLocation).title("Mi ubicación"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, zoom));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationUtil.getLatLng(), zoom));
             }
 
             @Override
