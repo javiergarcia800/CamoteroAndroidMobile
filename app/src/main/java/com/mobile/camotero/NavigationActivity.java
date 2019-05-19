@@ -29,7 +29,14 @@ public class NavigationActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+
+
+                // TODO Enviar notificación de petición.
+
+                
+
+
+                Snackbar.make(view, "Replace with your own action JIG...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
