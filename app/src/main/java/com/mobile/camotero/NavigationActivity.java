@@ -34,7 +34,7 @@ public class NavigationActivity extends AppCompatActivity
             public void onClick(View view) {
 
 
-                // TODO Enviar notificación de petición.
+                // Se muestra el dialogo de confirmación de envío de petición.
                 showDialogNotificacion();
 
 
@@ -128,12 +128,17 @@ public class NavigationActivity extends AppCompatActivity
     public void showDialogNotificacion(){
         new AlertDialog.Builder(this)
                 .setTitle("Enviar notificación")
-                .setMessage("Confirma que desea enviar una notificación de petición?")
+                .setMessage("¿Confirma que desea enviar una notificación a los vendedores más cercanos?" +
+                            "\n" +
+                            "\nSolo se les enviará una localización aproximada (Sin información personal).")
                 .setIcon(android.R.drawable.ic_dialog_alert)
+
 
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
+
+                        // Se envía la notificación a los vendedores más cercanos a la ubicación actual.
                         Toast.makeText(NavigationActivity.this, "Enviando notificación...", Toast.LENGTH_SHORT).show();
                     }})
 
