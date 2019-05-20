@@ -31,7 +31,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // Firebase (Necesario para Notificaciones Push)
-    implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
 
     // Firebase Cloud Messaging FCM (Necesario para Notificaciones Push)
     implementation 'com.google.firebase:firebase-messaging:17.4.0'
@@ -39,3 +39,5 @@ dependencies {
 
 // Firebase (Necesario para Notificaciones Push)
 apply plugin: 'com.google.gms.google-services'
+
+googleServices { disableVersionCheck = false }
